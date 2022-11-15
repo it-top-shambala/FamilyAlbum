@@ -1,0 +1,44 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Style x:Key="StyleDefault" TargetType="{x:Type Control}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Rubic"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+    
+    <Style x:Key="StyleLabel" TargetType="{x:Type Label}"
+           BasedOn="{StaticResource StyleDefault}">
+        <Setter Property="Width" Value="150"/>
+    </Style>
+    <Style x:Key="StyleInput" TargetType="{x:Type TextBox}"
+           BasedOn="{StaticResource StyleDefault}">
+        <Setter Property="Width" Value="400"/>
+    </Style>
+    
+    <Style x:Key="StyleButtonDefault" TargetType="{x:Type Button}"
+           BasedOn="{StaticResource StyleDefault}">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+    <Style x:Key="StyleButtonOpenImage" TargetType="{x:Type Button}"
+           BasedOn="{StaticResource StyleDefault}">
+        <Setter Property="Background" Value="CornflowerBlue"/>
+    </Style>
+    <Style x:Key="StyleButtonSave" TargetType="{x:Type Button}"
+           BasedOn="{StaticResource StyleDefault}">
+        <Setter Property="Background" Value="Teal"/>
+    </Style>
+    <Style x:Key="StyleButtonClear" TargetType="{x:Type Button}"
+           BasedOn="{StaticResource StyleDefault}">
+        <Setter Property="Background" Value="Salmon" />
+    </Style>
+    
+    <Style x:Key="StyleRowAdd" TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Margin" Value="0 10"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+</ResourceDictionary>
