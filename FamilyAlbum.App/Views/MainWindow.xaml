@@ -10,70 +10,73 @@
         Title="Family album"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized">
-    
+
     <Window.DataContext>
-        <vw:MainWindowViewModel/>
+        <vw:MainWindowViewModel />
     </Window.DataContext>
-    
+
     <Window.Resources>
-        <ResourceDictionary Source="MainWindowStyles.xaml"/>
+        <ResourceDictionary Source="MainWindowStyles.xaml" />
     </Window.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="9*"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="9*" />
         </Grid.RowDefinitions>
-        
+
         <StackPanel Grid.Row="0"
                     Style="{StaticResource StyleRowAdd}">
             <StackPanel Orientation="Horizontal">
                 <Label x:Name="LabelInputImagePath"
                        Content="Фотография"
-                       Style="{StaticResource StyleLabel}"/>
+                       Style="{StaticResource StyleLabel}" />
                 <TextBox x:Name="InputImagePath"
                          Text="{Binding ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         Style="{StaticResource StyleInput}"/>
+                         Style="{StaticResource StyleInput}" />
             </StackPanel>
-            
+
             <Button x:Name="ButtonOpenImage"
                     Content="Открыть"
                     Command="{Binding CommandOpenImage}"
-                    Style="{StaticResource StyleButtonOpenImage}"/>
-            
+                    Style="{StaticResource StyleButtonOpenImage}" />
+
             <StackPanel Orientation="Horizontal">
                 <Label x:Name="LabelInputComment"
                        Content="Комментарий"
-                       Style="{StaticResource StyleLabel}"/>
+                       Style="{StaticResource StyleLabel}" />
                 <TextBox x:Name="InputComment"
                          Text="{Binding Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         Style="{StaticResource StyleInput}"/>
+                         Style="{StaticResource StyleInput}" />
             </StackPanel>
-            
+
             <Button x:Name="ButtonSave"
                     Content="Сохранить"
                     Command="{Binding CommandSave}"
-                    Style="{StaticResource StyleButtonSave}"/>
+                    Style="{StaticResource StyleButtonSave}" />
             <Button x:Name="ButtonClear"
                     Content="Очистить"
                     Command="{Binding CommandClear}"
-                    Style="{StaticResource StyleButtonClear}"/>
+                    Style="{StaticResource StyleButtonClear}" />
         </StackPanel>
-        
+
         <StackPanel Grid.Row="1">
             <ListBox x:Name="ListImages"
                      ItemsSource="{Binding Photos}"
-                     SelectedItem="{Binding SelectedPhoto}">
+                     SelectedItem="{Binding SelectedPhoto}"
+                     Style="{StaticResource StyleList}">
                 <b:Interaction.Triggers>
                     <b:EventTrigger EventName="SelectionChanged">
-                        <b:InvokeCommandAction Command="{Binding CommandSelectionItem}"/>
+                        <b:InvokeCommandAction Command="{Binding CommandSelectionItem}" />
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="{Binding ImagePath}"/>
-                            <TextBlock Text="{Binding Comment}"/>
+                        <StackPanel Style="{StaticResource StyleItem}">
+                            <Image Source="{Binding ImagePath}"
+                                   Style="{StaticResource StyleItemImage}" />
+                            <TextBlock Text="{Binding Comment}"
+                                       Style="{StaticResource StyleItemText}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
