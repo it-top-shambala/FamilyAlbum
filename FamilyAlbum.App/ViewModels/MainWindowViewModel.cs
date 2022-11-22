@@ -43,11 +43,7 @@ public class MainWindowViewModel : BaseNotification
 
         CommandOpenImage = new LambdaCommand(_ => true, Open);
         CommandSave = new LambdaCommand(_ => true, Save);
-        CommandClear = new LambdaCommand(_ => true, _ =>
-        {
-            Comment = "";
-            ImagePath = "";
-        });
+        CommandClear = new LambdaCommand(_ => true, Clear);
         CommandSelectionItem = new LambdaCommand(_ => true, _ =>
         {
             Comment = SelectedPhoto.Comment;
@@ -55,6 +51,11 @@ public class MainWindowViewModel : BaseNotification
         });
     }
 
+    private void Clear(object? o)
+    {
+        Comment = "";
+        ImagePath = "";
+    }
     private void Open(object? o)
     {
         var openFileDialog = new OpenFileDialog
@@ -73,5 +74,6 @@ public class MainWindowViewModel : BaseNotification
         Photos.Add(new Photo(ImagePath, Comment));
         //TODO Копирование файла
         //TODO ДОбавление в БД
+        Clear(null);
     }
 }
