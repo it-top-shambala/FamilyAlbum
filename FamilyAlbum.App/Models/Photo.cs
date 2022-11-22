@@ -18,15 +18,8 @@ public class Photo : BaseNotification
 
     public Photo()
     {
-        
     }
-
-    public Photo(Photo photo)
-    {
-        Comment = photo.Comment;
-        ImagePath = photo.ImagePath;
-    }
-
+    
     public Photo(string path, string comment)
     {
         ImagePath = path;
