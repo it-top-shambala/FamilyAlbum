@@ -20,7 +20,7 @@ public sealed class PhotosDbContext : DbContext
     public void AddPhoto(string path, string comment)
     {
         Photos.Add(new Photo(path, comment));
-        SaveChanges();
+        SaveChanges(); //BUG
     }
 
     public void UpdatePhoto(int id, string path, string comment)

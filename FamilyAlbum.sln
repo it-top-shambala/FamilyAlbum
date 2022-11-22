@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyAlbum.App", "FamilyAl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyAlbum.DataBase", "FamilyAlbum.DataBase\FamilyAlbum.DataBase.csproj", "{83E09FCA-B801-41A1-85DF-F1E597F566B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyAlbum.DataBase.Test", "FamilyAlbum.DataBase.Test\FamilyAlbum.DataBase.Test.csproj", "{03974F30-1CA0-49AF-80DD-2A7C01F62488}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{83E09FCA-B801-41A1-85DF-F1E597F566B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83E09FCA-B801-41A1-85DF-F1E597F566B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83E09FCA-B801-41A1-85DF-F1E597F566B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03974F30-1CA0-49AF-80DD-2A7C01F62488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03974F30-1CA0-49AF-80DD-2A7C01F62488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03974F30-1CA0-49AF-80DD-2A7C01F62488}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03974F30-1CA0-49AF-80DD-2A7C01F62488}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
