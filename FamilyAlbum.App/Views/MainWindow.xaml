@@ -73,7 +73,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Style="{StaticResource StyleItem}">
-                            <Image Source="{Binding ImagePath}"
+                            <Image Source="{Binding Path}"
                                    Style="{StaticResource StyleItemImage}" />
                             <TextBlock Text="{Binding Comment}"
                                        Style="{StaticResource StyleItemText}" />

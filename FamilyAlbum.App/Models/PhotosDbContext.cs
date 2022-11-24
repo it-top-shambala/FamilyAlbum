@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
-namespace FamilyAlbum.DataBase;
+namespace FamilyAlbum.App.Models;
 
 public sealed class PhotosDbContext : DbContext
 {
@@ -9,7 +10,6 @@ public sealed class PhotosDbContext : DbContext
     public PhotosDbContext()
     {
         Database.EnsureCreated();
-        Photos.Load();
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

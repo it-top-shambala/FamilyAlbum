@@ -8,6 +8,8 @@ namespace FamilyAlbum.App.ViewModels;
 
 public class MainWindowViewModel : BaseNotification
 {
+    private int _id;
+    
     private Photo _selectedPhoto;
     public Photo SelectedPhoto
     {
@@ -36,9 +38,14 @@ public class MainWindowViewModel : BaseNotification
     public ICommand CommandClear { get; set; }
     public ICommand CommandSelectionItem { get; set; }
 
+    private readonly PhotosDbContext _db;
+
     public MainWindowViewModel()
     {
-        Photos = new ObservableCollection<Photo>();
+        _id = 0;
+        
+        _db = new PhotosDbContext();
+        Photos = new ObservableCollection<Photo>(_db.Photos);
         SelectedPhoto = new Photo();
 
         CommandOpenImage = new LambdaCommand(_ => true, Open);
@@ -46,8 +53,9 @@ public class MainWindowViewModel : BaseNotification
         CommandClear = new LambdaCommand(_ => true, Clear);
         CommandSelectionItem = new LambdaCommand(_ => true, _ =>
         {
+            _id = SelectedPhoto.Id;
             Comment = SelectedPhoto.Comment;
-            ImagePath = SelectedPhoto.ImagePath;
+            ImagePath = SelectedPhoto.Path;
         });
     }
 
@@ -55,6 +63,7 @@ public class MainWindowViewModel : BaseNotification
     {
         Comment = "";
         ImagePath = "";
+        _id = 0;
     }
     private void Open(object? o)
     {
@@ -71,9 +80,15 @@ public class MainWindowViewModel : BaseNotification
 
     private void Save(object? o)
     {
-        Photos.Add(new Photo(ImagePath, Comment));
-        //TODO Копирование файла
-        //TODO ДОбавление в БД
+        if (_id != 0)
+        {
+            _db.UpdatePhoto(_id, ImagePath, Comment);
+        }
+        else
+        {
+            Photos.Add(new Photo(ImagePath, Comment));
+            _db.AddPhoto(ImagePath, Comment);
+        }
         Clear(null);
     }
 }
